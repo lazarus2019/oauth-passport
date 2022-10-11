@@ -6,9 +6,13 @@ import Facebook from "@/img/facebook.png";
 import "./login.scss";
 
 function Login(props) {
-    const google = () => {
-      window.open("http://localhost:5000/auth/google", "_self");
-    };
+  const google = () => {
+    window.open("http://localhost:5000/auth/google", "_self");
+  };
+
+  const github = () => {
+    window.open("http://localhost:5000/auth/github", "_self");
+  };
   return (
     <div className="login">
       <h1 className="login-title">Choose a Login method</h1>
@@ -22,7 +26,7 @@ function Login(props) {
             <img src={Facebook} alt="" className="icon" />
             Facebook
           </div>
-          <div className="login-btn github">
+          <div className="login-btn github" onClick={github}>
             <img src={Github} alt="" className="icon" />
             Github
           </div>

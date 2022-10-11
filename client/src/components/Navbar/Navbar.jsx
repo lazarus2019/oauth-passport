@@ -13,9 +13,13 @@ function Navbar({ user }) {
       {user ? (
         <ul className="list">
           <li className="list-item">
-            <img className="avatar" src={user.picture} alt="" />
+            <img
+              className="avatar"
+              src={user.picture || user.avatar_url}
+              alt=""
+            />
           </li>
-          <li className="list-item">{user.name}</li>
+          <li className="list-item">{user.name || user.login}</li>
           <span className="list-item" onClick={logout}>
             Logout
           </span>

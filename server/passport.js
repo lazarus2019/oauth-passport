@@ -1,4 +1,5 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GitHubStrategy = require("passport-github2").Strategy;
 const passport = require("passport");
 
 passport.serializeUser((user, done) => {
@@ -15,7 +16,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback", // Set in Authorized redirect URIs
+      callbackURL: "/auth/google/callback", // Set at Authorized redirect URIs
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, done) {
@@ -32,6 +33,20 @@ passport.use(
       //   }
 
       //   user.save()
+    }
+  )
+);
+
+// https://github.com/settings/developers
+passport.use(
+  new GitHubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: "/auth/github/callback", // Set at Authorization callback URL
+    },
+    function (accessToken, refreshToken, profile, done) {
+      return done(null, profile);
     }
   )
 );

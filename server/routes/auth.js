@@ -31,11 +31,26 @@ router.get("/login/failed", (req, res) => {
   });
 });
 
+// Google
 router.get("/google", passport.authenticate("google", ["profile", "email"]));
 
 router.get(
   "/google/callback",
   passport.authenticate("google", {
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: "/auth/login/failed",
+  })
+);
+
+// Github
+router.get(
+  "/github",
+  passport.authenticate("github", { scope: ["user:email"] })
+);
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
     successRedirect: process.env.CLIENT_URL,
     failureRedirect: "/auth/login/failed",
   })
