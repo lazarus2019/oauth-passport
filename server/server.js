@@ -2,6 +2,7 @@ const express = require("express"); // server software
 const dotenv = require("dotenv");
 dotenv.config();
 const cors = require("cors");
+const authRoute = require("./routes/auth");
 const session = require("express-session"); // session middleware
 const cookieSession = require("cookie-session");
 const passport = require("passport");
@@ -39,6 +40,8 @@ app.use(
     credentials: true, // Access-Control-Allow-Origin
   })
 );
+
+app.use("/auth", authRoute);
 
 const PORT = process.env.PORT || 5000;
 
