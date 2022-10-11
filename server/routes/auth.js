@@ -56,6 +56,22 @@ router.get(
   })
 );
 
+// Facebook
+// https://developers.facebook.com/docs/facebook-login/permissions/overview
+// YOU MUST SETUP YOUR OWN DOMAIN FOR USING THIS FEATURE
+router.get(
+  "/facebook",
+  passport.authenticate("facebook", { scope: ["user_friends", "manage_pages"] })
+);
+
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: "/auth/login/failed",
+  })
+);
+
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect(process.env.CLIENT_URL);

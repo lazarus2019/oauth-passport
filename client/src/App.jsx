@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const getUser = async () => {
+  const getUser = async () => {
       try {
         const url = `http://localhost:5000/auth/login/success`;
         const { data } = await axios.get(url, { withCredentials: true });

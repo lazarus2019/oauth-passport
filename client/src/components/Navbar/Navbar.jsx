@@ -5,6 +5,7 @@ function Navbar({ user }) {
   const logout = () => {
     window.open("http://localhost:5000/auth/logout", "_self");
   };
+  // The code below only using for login w/ google & github, I will update the response props of facebook later.
   return (
     <div className="navbar">
       <Link to="/" className="logo">

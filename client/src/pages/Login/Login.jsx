@@ -13,6 +13,13 @@ function Login(props) {
   const github = () => {
     window.open("http://localhost:5000/auth/github", "_self");
   };
+
+  // YOU MUST SETUP YOUR OWN DOMAIN FOR USING THIS FEATURE
+  const facebook = () => {
+    window.open("http://localhost:5000/auth/facebook", "_self");
+  };
+  //
+
   return (
     <div className="login">
       <h1 className="login-title">Choose a Login method</h1>
@@ -22,7 +29,7 @@ function Login(props) {
             <img src={Google} alt="" className="icon" />
             Google
           </div>
-          <div className="login-btn facebook">
+          <div className="login-btn facebook" onClick={facebook}>
             <img src={Facebook} alt="" className="icon" />
             Facebook
           </div>
