@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import ProtectedLayout from "./components/Layout/ProtectedLayout";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -48,8 +49,9 @@ function App() {
             <Route path=":id" element={<Post />} />
           </Route>
 
-          {/* Protected will be here */}
-          <Route path="/posts" element={<PostList />} />
+          <Route path="/" element={<ProtectedLayout />}>
+            <Route path="posts" element={<PostList />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

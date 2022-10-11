@@ -8,13 +8,12 @@ function ProtectedLayout(props) {
   useLayoutEffect(() => {
     const checkAuth = async () => {
       const userInfo = await authCookie.isAuthentication();
-      console.log(userInfo);
       if (!userInfo) {
         navigate("/");
       }
     };
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   return (
     <>
