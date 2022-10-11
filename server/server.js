@@ -2,7 +2,33 @@ const express = require("express"); // server software
 const dotenv = require("dotenv");
 dotenv.config();
 const cors = require("cors");
+const session = require("express-session"); // session middleware
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 const app = express();
+
+// Setup session
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: "somesecret",
+    cookie: { maxAge: 24 * 60 * 60 * 100 }, // 1 day
+  })
+);
+
+// If you want to use cookieSession (must install package passport version 0.5.*)
+// app.use(
+//   cookieSession({
+//     name: "session",
+//     keys: ["cyberwolve"],
+//     maxAge: 24 * 60 * 60 * 100, // 1 day
+//   })
+// );
+
+// Apply session
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(
   cors({

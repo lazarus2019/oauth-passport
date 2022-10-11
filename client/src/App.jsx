@@ -7,13 +7,20 @@ import PostList from "./pages/Post/PostList";
 import "./scss/_index.scss";
 
 function App() {
+  const user = {
+    picture: "https://avatars.githubusercontent.com/u/62226062?v=4",
+    name: "Lazarus",
+  };
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
+        <Navbar user={user} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" /> : <Login />}
+          />
           <Route path="/post">
             <Route path=":id" element={<Post />} />
           </Route>
