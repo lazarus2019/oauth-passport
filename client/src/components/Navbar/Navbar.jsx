@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import "./navbar.scss";
 
 function Navbar({ user }) {
+  const logout = () => {
+    window.open("http://localhost:5000/auth/logout", "_self");
+  };
   return (
     <div className="navbar">
       <Link to="/" className="logo">
@@ -13,7 +16,9 @@ function Navbar({ user }) {
             <img className="avatar" src={user.picture} alt="" />
           </li>
           <li className="list-item">{user.name}</li>
-          <span className="list-item">Logout</span>
+          <span className="list-item" onClick={logout}>
+            Logout
+          </span>
         </ul>
       ) : (
         <Link to="/login" className="link">
