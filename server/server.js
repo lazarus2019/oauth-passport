@@ -5,6 +5,7 @@ const cors = require("cors");
 const session = require("express-session"); // session middleware
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const passportStrategy = require("./passport"); // import for run the code inside file (must below the dotenv config for using env value)
 const app = express();
 
 // Setup session
