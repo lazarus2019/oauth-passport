@@ -1,0 +1,114 @@
+.login {
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-title {
+    position: absolute;
+    top: 150px;
+    color: lightgray
+  }
+
+  .wrapper {
+    width: 60%;
+    height: 75%;
+    -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+
+    .left,
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .left {
+      .login-btn {
+        display: flex;
+        width: 150px;
+        padding: 15px 25px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        & + .login-btn {
+          margin-top: 20px;
+        }
+
+        &.google {
+          background-color: #df4930;
+        }
+
+        &.facebook {
+          background-color: #507cc0;
+        }
+
+        &.github {
+          background-color: #000;
+        }
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .right {
+      input {
+        width: 200px;
+        padding: 15px 25px;
+        margin-bottom: 20px;
+      }
+      .submit {
+        width: 200px;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        padding: 15px 20px;
+        border-radius: 5px;
+        background-color: rgba(128, 0, 128, 0.671);
+      }
+    }
+
+    .center {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .or {
+        border: 2px solid lightgray;
+        border-radius: 50%;
+        color: gray;
+        padding: 10px;
+        font-weight: bold;
+        background-color: #fff;
+      }
+
+      .line {
+        width: 0.5px;
+        height: 70%;
+        background-color: lightgray;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: -1;
+      }
+    }
+  }
+}
