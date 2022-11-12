@@ -12,11 +12,16 @@ function Navbar({ user }) {
         Lazarus Blog
       </Link>
       {user ? (
+        <Link to="/posts" className="logo">
+          Posts
+        </Link>
+      ) : null}
+      {user ? (
         <ul className="list">
           <li className="list-item">
             <img
               className="avatar"
-              src={user.picture || user.avatar_url}
+              src={user.picture || user.avatar_url || user.avatar}
               alt=""
             />
           </li>
